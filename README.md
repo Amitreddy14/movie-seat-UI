@@ -32,7 +32,7 @@ Explore the responsive movie seat booking interface and test the interactive fea
 
 
 
-
+##Contributing
 Contributions are welcome! Follow these steps:
 Fork the repository.
 Create a new branch: git checkout -b feature/new-feature.
