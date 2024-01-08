@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Seat Booking</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f3f3;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 90%;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .screen {
+            height: 30px;
+            background-color: #333;
+            margin: 20px 0;
+        }
+
+        .seats {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 10px;
+        }
+
+        .seat {
+            width: 30px;
+            height: 30px;
+            background-color: #bdc3c7;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .seat.selected {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .total {
+            font-size: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .seats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Movie Seat Booking</h2>
+        <div class="screen"></div>
+        <div class="seats"></div>
+        <div class="controls">
+            <div class="total">Total: $<span id="total">0</span></div>
+            <button onclick="bookSeats()">Book Now</button>
+        </div>
+    </div>
+
+    <script>
+        const seatsContainer = document.querySelector('.seats');
+        const totalElement = document.getElementById('total');
+        let total = 0;
+
+        // Create seats
+        for (let i = 0; i < 32; i++) {
+            const seat = document.createElement('div');
+            seat.classList.add('seat');
+            seat.addEventListener('click', toggleSeat);
+            seatsContainer.appendChild(seat);
+        }
+
+        function toggleSeat() {
+            this.classList.toggle('selected');
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            total = selectedSeats.length * 10;
+            totalElement.textContent = total;
+        }
+
+        function bookSeats() {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            if (selectedSeats.length === 0) {
+                alert('Please select at least one seat.');
+            } else {
+                alert(`Seats booked! Total: $${total}`);
+                // You can add additional logic here for backend integration
+            }
+        }
+    </script>
+</body>
+</html>
