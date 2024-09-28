@@ -76,7 +76,7 @@
         <div class="screen"></div>
         <div class="seats"></div>
         <div class="controls">
-            <div class="total">Total: $<span id="total">0</span></div>
+            <div class="total">Total: Rs <span id="total">0</span></div>
             <button onclick="bookSeats()">Book Now</button>
         </div>
     </div>
@@ -101,7 +101,7 @@
 
         function calculateTotal() {
             const selectedSeats = document.querySelectorAll('.seat.selected');
-            total = selectedSeats.length * 10;
+            total = selectedSeats.length * 100;
             totalElement.textContent = total;
         }
 
@@ -110,7 +110,7 @@
             if (selectedSeats.length === 0) {
                 alert('Please select at least one seat.');
             } else {
-                alert(`Seats booked! Total: $${total}`);
+                alert(`Seats booked! Total: Rs ${total}`);
                 // You can add additional logic here for backend integration
             }
         }
