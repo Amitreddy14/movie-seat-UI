@@ -6,12 +6,14 @@ A simple and responsive movie seat booking user interface implemented using HTML
 
 - [Demo](#demo)
 - [Features](#features)
-- [Contributing](#contributing)
 
 
-## Demo
 
-http://127.0.0.1:5500/movie.html
+## Screenshot
+
+
+![Screenshot 2024-09-28 103101](https://github.com/user-attachments/assets/b9d72459-45dc-48a3-9389-7c45c52116a1)
+
 
 ## Features
 
